@@ -1,28 +1,43 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <i-button size="small">按钮 1</i-button>
+        <i-button>按钮 2</i-button>
+        <i-button>按钮 3</i-button>
+        <i-button>
+            <span slot="icon">🍓</span>
+            海欣甜派
+        </i-button>
+        <i-button disabled>禁用</i-button>
+        <i-button size="large"
+                  @on-click="handleEvent"
+                  @click.native="handleNativeEvent">
+            <span slot="icon">🍓</span>
+            点我触发
+        </i-button>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+    import IButton from './components/i-button'
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+    export default {
+        name: 'app',
+        components: {
+            IButton
+        },
+        methods: {
+            // 组件的事件
+            handleEvent(event) {
+                console.log(event);
+            },
+            // 原生的事件
+            handleNativeEvent() {
+                console.log('this a native event!');
+            }
+        }
+    }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
